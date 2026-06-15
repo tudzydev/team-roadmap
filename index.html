@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git & DevOps SlideCraft Hub</title>
+  
+  <!-- Styling -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Third Party Dependencies (CDNs) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="theme-gaia-light">
+  <div class="app-container">
+    
+    <!-- Top Control Header -->
+    <header class="app-header">
+      <div class="logo-section">
+        <i data-lucide="presentation"></i>
+        <h1>Git & DevOps SlideCraft</h1>
+      </div>
+      
+      <div class="header-controls">
+        <!-- Course Selection -->
+        <div class="control-group">
+          <span class="control-label">Course:</span>
+          <select id="deck-select" class="theme-select">
+            <!-- Dynamically populated -->
+          </select>
+        </div>
+
+        <!-- Theme Selection -->
+        <div class="control-group">
+          <span class="control-label">Theme:</span>
+          <select id="theme-select" class="theme-select">
+            <option value="gaia-light" selected>Gaia Light (Default)</option>
+            <option value="gaia-dark">Gaia Dark</option>
+            <option value="dracula">Dracula</option>
+            <option value="cyberpunk">Cyberpunk Neon</option>
+            <option value="forest">Emerald Forest</option>
+          </select>
+        </div>
+        
+        <!-- View Mode Selector -->
+        <div class="control-group">
+          <span class="control-label">View:</span>
+          <div class="view-btn-group">
+            <button class="view-btn active" id="view-present" title="Presenter View">
+              <i data-lucide="tv-2"></i> Present
+            </button>
+            <button class="view-btn" id="view-editor" title="Split Editor Mode">
+              <i data-lucide="columns-3"></i> Editor
+            </button>
+            <button class="view-btn" id="view-grid" title="Slide Overview Grid">
+              <i data-lucide="layout-grid"></i> Grid
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Core Workspace -->
+    <main class="main-workspace">
+      
+      <!-- Left Sidebar: Slide Outline & Search -->
+      <aside class="sidebar-outline" id="app-sidebar">
+        <div class="sidebar-search-box">
+          <div class="search-input-wrapper">
+            <i data-lucide="search"></i>
+            <input type="text" id="slide-search" placeholder="Search slides...">
+          </div>
+        </div>
+        <div class="slide-list" id="slide-outline-list">
+          <!-- Dynamically populated outline of slides -->
+        </div>
+      </aside>
+      
+      <!-- Center: Presentation Stage -->
+      <section class="presentation-stage" id="app-stage">
+        
+        <!-- Slide Viewer Stage -->
+        <div class="slide-view-container" id="slide-container">
+          <div class="slide-wrapper" id="slide-wrapper">
+            <div class="slide-box" id="slide-box">
+              <div class="auto-fit-container">
+                <div class="slide-content" id="slide-content">
+                  <!-- Parsed Markdown slide is injected here -->
+                </div>
+                <div class="slide-footer">
+                  <span id="footer-left">เจาะลึก Git, DevOps & Jenkins</span>
+                  <span id="footer-right">Page 1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bottom controls -->
+        <div class="stage-controls">
+          <div class="nav-buttons">
+            <button class="nav-btn" id="btn-prev-slide" disabled>
+              <i data-lucide="chevron-left"></i> Previous
+            </button>
+            <button class="nav-btn" id="btn-next-slide">
+              Next <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+          
+          <div class="slide-indicator" id="slide-indicator-text">
+            Slide 1 / 1
+          </div>
+          
+          <div class="right-controls">
+            <button class="fullscreen-btn" id="btn-fullscreen" title="Toggle Fullscreen">
+              <i data-lucide="maximize-2"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Speaker / Presenter Notes -->
+        <div class="notes-panel" id="presenter-notes-box">
+          <div class="notes-title"><i data-lucide="message-square-quote"></i> Speaker Notes</div>
+          <div id="notes-content">
+            Welcome to the presentation. This is the first slide.
+          </div>
+        </div>
+      </section>
+      
+      <!-- Right Sidebar: Live Markdown Editor -->
+      <aside class="editor-panel" id="app-editor" style="display: none;">
+        <div class="panel-header">
+          <div class="panel-title">
+            <i data-lucide="file-code-2"></i>
+            <span>Markdown Live Editor</span>
+          </div>
+          <button class="diag-btn" id="btn-save-markdown" title="Save file locally">
+            Save File
+          </button>
+        </div>
+        <textarea id="markdown-textarea" class="editor-textarea" spellcheck="false" placeholder="Write your Marp slides here..."></textarea>
+      </aside>
+      
+    </main>
+  </div>
+
+  <!-- Javascript Modules -->
+  <script src="config.js"></script>
+  <script src="01-git-github/slides.js"></script>
+  <script src="02-github-actions/slides.js"></script>
+  <script src="03-jenkins/slides.js"></script>
+  <script src="diagrams.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
