@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const w = 960;
     const h = 540;
-    
+    const scale = Math.min(wrapperWidth / w, wrapperHeight / h) * 0.95;
     slideBox.style.transform = `translate(-50%, -50%) scale(${scale})`;
     slideBox.style.position = 'absolute';
     slideBox.style.left = '50%';
