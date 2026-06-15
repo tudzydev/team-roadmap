@@ -231,6 +231,52 @@ Pull Request คือ **ด่านตรวจคุณภาพโค้ด*
 
 ---
 
+## 5. หลักการเขียน Commit Message ที่ดี
+Commit Message คือ **บันทึกประวัติศาสตร์การพัฒนา** ที่ช่วยอธิบายเจตนารมณ์ของการเปลี่ยนแปลงให้คนในทีมและตัวเราในอนาคตเข้าใจ
+
+*   **50/72 Rule (กฎ 50/72):**
+    *   **หัวเรื่อง (Subject):** ควรมีความยาวไม่เกิน 50 ตัวอักษร สรุปสั้นๆ ว่าเปลี่ยนแปลงอะไร
+    *   **รายละเอียด (Body):** เว้นบรรทัด 1 บรรทัดก่อนอธิบายรายละเอียดเพิ่มเติม โดยให้เคาะบรรทัดใหม่ทุกๆ 72 ตัวอักษร
+*   **ใช้ประโยคคำสั่ง (Imperative Mood):** ใช้คำกริยาแสดงเจตจำนงในการเปลี่ยนแปลงแอปพลิเคชัน
+    *   *ตัวอย่าง:* `Add payment validator` แทนที่จะเป็น `Added payment validator` หรือ `Adds payment validator`
+*   **อธิบาย "ทำไม" และ "อะไร":** โค้ดแสดงให้เห็น "อย่างไร" (How) อยู่แล้ว คอมมิตเมสเสจจึงควรโฟกัสที่การตอบคำถามว่า "เพื่ออะไร" (Why) และ "แก้อะไร" (What)
+
+---
+
+## 5. โครงสร้างแบบแผน Conventional Commits
+มาตรฐานการเขียน Commit Message ที่ช่วยให้ระบบอัตโนมัติสามารถอ่านและสร้าง Release Notes / Change Logs ได้อัตโนมัติ
+
+**โครงสร้างข้อกำหนด:**
+```
+<type>(<scope>): <description>
+
+[body]
+
+[footer]
+```
+
+*   **ตัวอย่าง:**
+    *   `feat(auth): add email verification support`
+    *   `fix(cart): resolve double-tax calculation on checkout`
+    *   `docs(readme): update CI/CD deployment instructions`
+
+---
+
+## 5. ประเภทของ Commit (Commit Types)
+ประเภทการทำงานยอดนิยมตามข้อกำหนดของ Conventional Commits:
+
+| Type | คำอธิบาย | ตัวอย่างการใช้งาน |
+| :--- | :--- | :--- |
+| **feat** | เพิ่มความสามารถใหม่ (New feature) | `feat(api): add stripe webhook handler` |
+| **fix** | แก้ไขบั๊ก (Bug fix) | `fix(auth): fix token expiration crash` |
+| **docs** | แก้ไขหรืออัปเดตเอกสาร (Documentation) | `docs(api): update endpoints table` |
+| **style** | ปรับแต่งรูปแบบโค้ด เช่น whitespace, formatting (ไม่ใช่การแก้บั๊กหรือฟีเจอร์) | `style(ui): format card CSS margins` |
+| **refactor**| ปรับโครงสร้างโค้ดภายในใหม่ ให้สะอาดขึ้น (ไม่มีผลต่อผู้ใช้) | `refactor: clean up db query loops` |
+| **test** | เพิ่มหรืออัปเดตชุดทดสอบ (Tests) | `test: add math utility unit tests` |
+| **chore** | งานจิปาถะอื่นๆ เช่น อัปเดต dependencies, config ระบบ | `chore: bump express version` |
+
+---
+
 ## 6. Git สำหรับใช้งานจริง: Self Project (ลุยเดี่ยว)
 เน้นความเร็ว ความเรียบง่าย และเก็บประวัติเพื่อสำรองข้อมูล
 
