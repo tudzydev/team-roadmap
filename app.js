@@ -330,9 +330,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const w = 960;
     const h = 540;
     
-    const scale = Math.min(wrapperWidth / w, wrapperHeight / h) * 0.95; // 0.95 adds a safety margin
-    slideBox.style.transform = `scale(${scale})`;
+    slideBox.style.transform = `translate(-50%, -50%) scale(${scale})`;
     slideBox.style.position = 'absolute';
+    slideBox.style.left = '50%';
+    slideBox.style.top = '50%';
   }
 
   // Render Grid overview mode
