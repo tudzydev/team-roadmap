@@ -281,6 +281,6 @@ Pull Request คือ **ด่านตรวจคุณภาพโค้ด*
    * รัน \`git merge feat-login\` ในกิ่ง \`main\`
    * เปิดไฟล์ \`app.js\` ลบสัญลักษณ์ \`<<<<<<<\`, \`=======\`, \`>>>>>>>\`
    * แก้ไขโค้ดที่ทับซ้อนกันให้สมบูรณ์ รัน \`git add\` และ \`git commit\`
-\`;
+`;
 
 const defaultSlidesMarkdown = gitGithubMarkdown; // default is Git & GitHub

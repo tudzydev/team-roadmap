@@ -83,4 +83,4 @@ pipeline {
 *   การเขียน Jenkinsfile (Declarative vs Scripted Pipeline)
 *   การเชื่อมต่อ Webhook จาก GitHub เพื่อเริ่มรัน Jenkins อัตโนมัติเมื่อเกิดการ Push
 *   การนำภาพรวมของ Jenkins เชื่อมต่อแจ้งเตือนเข้าสู่แชนเนล Discord/Slack
-\`;
+`;
