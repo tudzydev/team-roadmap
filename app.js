@@ -566,6 +566,29 @@ document.addEventListener('DOMContentLoaded', () => {
     viewEditor.addEventListener('click', () => setViewMode('editor'));
     viewGrid.addEventListener('click', () => setViewMode('grid'));
 
+    // Mobile Tabs click handler
+    const mobileTabBtns = document.querySelectorAll('.mobile-tab-btn');
+    const mainWorkspace = document.getElementById('main-workspace');
+    if (mobileTabBtns && mainWorkspace) {
+      mainWorkspace.classList.add('show-stage');
+      mobileTabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          mobileTabBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          mainWorkspace.classList.remove('show-stage', 'show-outline', 'show-editor');
+          const tab = btn.getAttribute('data-tab');
+          if (tab === 'stage') {
+            mainWorkspace.classList.add('show-stage');
+            setTimeout(resizeSlide, 50);
+          } else if (tab === 'outline') {
+            mainWorkspace.classList.add('show-outline');
+          } else if (tab === 'editor') {
+            mainWorkspace.classList.add('show-editor');
+          }
+        });
+      });
+    }
+
     // Markdown text input changes (Live Editing)
     textarea.addEventListener('input', () => {
       rawMarkdown = textarea.value;

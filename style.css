@@ -1859,6 +1859,11 @@ select.theme-select:hover {
   }
 }
 
+/* Mobile Tabs Styling */
+.mobile-tabs-bar {
+  display: none;
+}
+
 @media (max-width: 768px) {
   body {
     overflow: hidden;
@@ -1873,6 +1878,7 @@ select.theme-select:hover {
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    box-shadow: none;
   }
   .header-controls {
     flex-wrap: wrap;
@@ -1904,17 +1910,77 @@ select.theme-select:hover {
   .logo-section h1 {
     font-size: 1.1rem;
   }
+  
+  .mobile-tabs-bar {
+    display: flex;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    height: 48px;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    z-index: 90;
+    flex-shrink: 0;
+  }
+  .mobile-tab-btn {
+    background: none;
+    border: none;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+  }
+  .mobile-tab-btn.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+  }
+
   .main-workspace {
     flex-direction: column;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 108px);
     overflow: hidden;
   }
-  .sidebar-outline {
+  
+  /* Show/hide panels based on active mobile tab */
+  .main-workspace.show-stage .presentation-stage {
+    display: flex !important;
+  }
+  .main-workspace.show-stage .sidebar-outline,
+  .main-workspace.show-stage .editor-panel {
     display: none !important;
   }
-  .editor-panel {
+  
+  .main-workspace.show-outline .sidebar-outline {
+    display: flex !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    border-right: none;
+  }
+  .main-workspace.show-outline .presentation-stage,
+  .main-workspace.show-outline .editor-panel {
     display: none !important;
   }
+  
+  .main-workspace.show-editor .editor-panel {
+    display: flex !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-left: none;
+  }
+  .main-workspace.show-editor .presentation-stage,
+  .main-workspace.show-editor .sidebar-outline {
+    display: none !important;
+  }
+  
   .presentation-stage {
     padding: 8px;
     width: 100%;
